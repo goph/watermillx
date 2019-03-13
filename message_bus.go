@@ -11,15 +11,15 @@ import (
 type MessageBus struct {
 	publisher   message.Publisher
 	marshaler   MessageMarshaler
-	idGenerator IDGenerator
+	idgenerator IDGenerator
 }
 
 // NewMessageBus returns a new MessageBus instance.
-func NewMessageBus(publisher message.Publisher, marshaler MessageMarshaler, idGenerator IDGenerator) *MessageBus {
+func NewMessageBus(publisher message.Publisher, marshaler MessageMarshaler, idgenerator IDGenerator) *MessageBus {
 	return &MessageBus{
 		publisher:   publisher,
 		marshaler:   marshaler,
-		idGenerator: idGenerator,
+		idgenerator: idgenerator,
 	}
 }
 
@@ -42,7 +42,7 @@ func (b *MessageBus) Publish(ctx context.Context, topic string, m interface{}) e
 		return errors.WithMessage(err, "cannot marshal message payload")
 	}
 
-	msgID, err := b.idGenerator.Generate()
+	msgID, err := b.idgenerator.Generate()
 	if err != nil {
 		return errors.WithMessage(err, "cannot generate message ID")
 	}

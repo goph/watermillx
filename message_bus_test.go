@@ -38,7 +38,11 @@ func TestMessageBus_Publish(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if got, want := string(publisher.messages[topic][0].Payload), "message"; got != want {
-		t.Errorf("unexpected message\nactual:  %s\nexpected: %s", got, want)
+	if got, want := publisher.messages[topic][0].UUID, idGenerator.id; got != want {
+		t.Errorf("message id does not match the expected value\nactual:  %s\nexpected: %s", got, want)
+	}
+
+	if got, want := string(publisher.messages[topic][0].Payload), marshaler.message; got != want {
+		t.Errorf("message payload does not match the expected value\nactual:  %s\nexpected: %s", got, want)
 	}
 }
