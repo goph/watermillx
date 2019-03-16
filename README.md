@@ -6,7 +6,7 @@
 [![GolangCI](https://golangci.com/badges/github.com/goph/watermillx.svg)](https://golangci.com/r/github.com/goph/watermillx)
 [![GoDoc](http://img.shields.io/badge/godoc-reference-5272B4.svg?style=flat-square)](https://godoc.org/github.com/goph/watermillx)
 
-**Message oriented tools based on [Watermill](https://github.com/ThreeDotsLabs/watermill).**
+**Various extensions and tools for [Watermill](https://github.com/ThreeDotsLabs/watermill).**
 
 
 ## Installation
